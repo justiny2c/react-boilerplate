@@ -1,12 +1,20 @@
 const router = require('express').Router();
-// const fs = require('fs');
-const dummyData = require('../todoList.json');
-
-// const addTodo = require('../models/todo.model');
+const filename = '../todoList.json';
+const data = require(filename);
+const helper = require('./helper.js');
 
 router.route('/').get((req, res) => {
-  //   let data = fs.readFileSync(dummyData);
-  res.json(dummyData);
+  res.json(data);
+});
+
+router.route('/').post((req, res) => {
+  const id = { id: helper.getNewId(data) };
+  const todo = req.body;
+  const date = { createdAt: helper.newDate() };
+  const newTodo = { ...id, ...todo, ...date };
+  data.push(newTodo);
+  helper.writeJSONFile(filename, data);
+  res.json(data);
 });
 
 module.exports = router;
