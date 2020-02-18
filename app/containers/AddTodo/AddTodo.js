@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { postTodo } from '../../redux/actions';
 
@@ -23,18 +24,30 @@ export class AddTodo extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <input
+      <FormContainer>
+        <Input
           placeholder="Type new todo..."
           onChange={this.handleChange}
           value={this.state.input}
           name="input"
         />
         <button onClick={this.handleSubmit}>Add to list</button>
-      </div>
+      </FormContainer>
     );
   }
 }
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin-top: 2rem;
+`;
+
+const Input = styled.input`
+  width: 50%;
+  margin-right: 0.5rem;
+`;
 
 const mapStateToProps = state => ({
   ...state,
