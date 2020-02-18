@@ -11,13 +11,15 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+// import HomePage from 'containers/HomePage/Loadable';
+// import FeaturePage from 'containers/FeaturePage/Loadable';
+// import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
-import Footer from 'components/Footer';
+import TodoList from '../TodoList/TodoList';
+import AddTodo from '../AddTodo/AddTodo';
+// import Footer from 'components/Footer';
 
-import GlobalStyle from '../../global-styles';
+// import GlobalStyle from '../../global-styles';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -39,12 +41,11 @@ export default function App() {
       </Helmet>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
+        <Route exact path="/" component={TodoList} />
+        <Route path="/add" component={AddTodo} />
       </Switch>
-      <Footer />
-      <GlobalStyle />
+      {/* <Footer /> */}
+      {/* <GlobalStyle /> */}
     </AppWrapper>
   );
 }
