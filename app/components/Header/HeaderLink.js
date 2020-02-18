@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default styled(Link)`
   display: inline-flex;
-  padding: 0.15em 1em;
+  padding: 0.15rem 1.5rem;
   margin: 1em;
   text-decoration: none;
   border-radius: 4px;
@@ -15,11 +15,11 @@ export default styled(Link)`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 12px;
-  border: 2px solid #41addd;
-  color: #41addd;
+  border: 2px solid #e05a47;
+  color: #e05a47;
 
   &:active {
-    background: #41addd;
+    background: #e05a47;
     color: #fff;
   }
 `;

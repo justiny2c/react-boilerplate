@@ -10,34 +10,35 @@ class TodoList extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div>
+      <ListContainer>
         <ul>
           {this.props.todos &&
             this.props.todos.map(todo => (
-              <ListItem key={todo.id}>{todo.todo_item}</ListItem>
+              <p key={todo.id}>
+                {todo.id}. {todo.todo_item}
+              </p>
             ))}
         </ul>
-      </div>
+      </ListContainer>
     );
   }
 }
 
-const ListItem = styled.li`
-  margin: 0.5rem;
+export const ListContainer = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin-top: 2rem;
 `;
 
-// const appDataSelector = state => state.todos;
 const dataSelector = state => state.todos.data;
 // const recentSelector = createSelector(
 //   dataSelector,
 //   todos => todos.filter(todo => todo[0]),
 // );
 
-const mapStateToProps = state => {
-  return { todos: dataSelector(state) };
-};
+const mapStateToProps = state => ({ todos: dataSelector(state) });
 
 export default connect(
   mapStateToProps,
