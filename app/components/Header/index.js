@@ -3,10 +3,9 @@ import React from 'react';
 
 import A from './A';
 import Img from './Img';
-// import NavBar from './NavBar';
-// import HeaderLink from './HeaderLink';
+import NavBar from './NavBar';
+import HeaderLink from './HeaderLink';
 import Banner from './banner.png';
-// import messages from './messages';
 
 function Header() {
   return (
@@ -14,14 +13,14 @@ function Header() {
       <A href="https://www.reactboilerplate.com/">
         <Img src={Banner} alt="react-boilerplate - Logo" />
       </A>
-      {/* <NavBar>
+      <NavBar>
         <HeaderLink to="/">
-          <FormattedMessage {...messages.home} />
+          <h3>Home</h3>
         </HeaderLink>
-        <HeaderLink to="/features">
-          <FormattedMessage {...messages.features} />
+        <HeaderLink to="/add">
+          <h3>Add Todo</h3>
         </HeaderLink>
-      </NavBar> */}
+      </NavBar>
     </div>
   );
 }

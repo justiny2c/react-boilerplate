@@ -12,7 +12,7 @@ router.route('/').post((req, res) => {
   const todo = req.body;
   const date = { createdAt: helper.newDate() };
   const newTodo = { ...id, ...todo, ...date };
-  data.push(newTodo);
+  data.unshift(newTodo);
   helper.writeJSONFile(filename, data);
   res.json(data);
 });
