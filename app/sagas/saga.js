@@ -9,7 +9,7 @@ import {
   POST_START,
 } from '../redux/actions';
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+
 function* getTodos(action) {
   try {
     // do api call

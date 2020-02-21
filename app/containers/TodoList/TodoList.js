@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchTodos } from '../../redux/actions';
-// import { createSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
 class TodoList extends Component {
   componentDidMount() {
@@ -32,13 +32,14 @@ export const ListContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const dataSelector = state => state.todos.data;
-// const recentSelector = createSelector(
-//   dataSelector,
-//   todos => todos.filter(todo => todo[0]),
-// );
+// this selector "caches" the todos data
+const getTodos = createSelector(
+  state => state.todos.data,
+  todos => todos,
+);
 
-const mapStateToProps = state => ({ todos: dataSelector(state) });
+// mapStateToProps is called everytime there is a change to state
+const mapStateToProps = state => ({ todos: getTodos(state) });
 
 export default connect(
   mapStateToProps,
