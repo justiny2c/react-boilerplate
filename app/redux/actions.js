@@ -7,6 +7,7 @@ export const fetchTodos = () => ({ type: FETCH_START });
 export const receiveTodos = data => ({ type: FETCH_SUCCESS, data });
 
 export const fetchData = async () => {
+  console.log('Fetching...');
   try {
     const response = await axios.get('http://localhost:3000/api/todos');
     return response;
