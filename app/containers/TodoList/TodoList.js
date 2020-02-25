@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../../redux/actions';
 import { createSelector } from 'reselect';
+import { fetchTodos } from '../../redux/actions';
 
 class TodoList extends Component {
   componentDidMount() {
